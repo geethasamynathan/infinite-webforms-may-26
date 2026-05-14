@@ -16,23 +16,26 @@ namespace DemoApp2
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if(!Page.IsValid)
+            { return; }
+
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            if(string.IsNullOrEmpty(username))
-            {
-                lblMessage.Text = "Please enter username.";
-                lblMessage.ForeColor = System.Drawing.Color.Red;
-                txtUsername.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(password))
-            {
-                lblMessage.Text = "Please enter password.";
-                lblMessage.ForeColor = System.Drawing.Color.Red;
-                txtUsername.Focus();
-                return;
-            }
+            //if(string.IsNullOrEmpty(username))
+            //{
+            //    lblMessage.Text = "Please enter username.";
+            //    lblMessage.ForeColor = System.Drawing.Color.Red;
+            //    txtUsername.Focus();
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(password))
+            //{
+            //    lblMessage.Text = "Please enter password.";
+            //    lblMessage.ForeColor = System.Drawing.Color.Red;
+            //    txtUsername.Focus();
+            //    return;
+            //}
             if (username == "admin" && password == "admin@123")
             {
                 lblMessage.Text = "Login successful!";

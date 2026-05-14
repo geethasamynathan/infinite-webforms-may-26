@@ -18,6 +18,9 @@ namespace DemoApp2
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             lblMessage.Text = "";
+
+            if(!Page.IsValid)
+            { return; }
             string name = txtName.Text.Trim();
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
@@ -25,49 +28,49 @@ namespace DemoApp2
             string gender = rblGender.SelectedValue;
             string course = cblSkills.SelectedValue;
 
-            if (name == "")
-            {
-                ShowError("Please enter name.");
-                return;
-            }
-            if (email == "")
-            {
-                ShowError("Please enter email.");
-                return;
-            }
+            //if (name == "")
+            //{
+            //    ShowError("Please enter name.");
+            //    return;
+            //}
+            //if (email == "")
+            //{
+            //    ShowError("Please enter email.");
+            //    return;
+            //}
 
-            if (password == "")
-            {
-                ShowError("Please enter password.");
-                return;
-            }
-            if (password.Length < 6)
-            {
-                ShowError("Password must be at least 6 characters long.");
-                return;
-            }
-            if (ageText == "")
-            {
-                ShowError("Please enter age.");
-                return;
-            }
-            int age;
-            if (!int.TryParse(ageText, out  age))
-            {
-                ShowError("Please enter a valid age.");
-                return;
-            }
-            if (age < 18)
-            {
-                ShowError("Age must be at least 18.");
-                return;
-            }
+            //if (password == "")
+            //{
+            //    ShowError("Please enter password.");
+            //    return;
+            //}
+            //if (password.Length < 6)
+            //{
+            //    ShowError("Password must be at least 6 characters long.");
+            //    return;
+            //}
+            //if (ageText == "")
+            //{
+            //    ShowError("Please enter age.");
+            //    return;
+            //}
+            //int age;
+            //if (!int.TryParse(ageText, out  age))
+            //{
+            //    ShowError("Please enter a valid age.");
+            //    return;
+            //}
+            //if (age < 18)
+            //{
+            //    ShowError("Age must be at least 18.");
+            //    return;
+            //}
 
-            if (rblGender.SelectedIndex == -1)
-            {
-                ShowError("Please select Gender");
-                return;
-            }
+            //if (rblGender.SelectedIndex == -1)
+            //{
+            //    ShowError("Please select Gender");
+            //    return;
+            //}
             bool isSkillSelected = false;
             StringBuilder skills = new StringBuilder();
 
