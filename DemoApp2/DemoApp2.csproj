@@ -126,6 +126,7 @@
     <Content Include="EmployeeRegistration.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="GridViewDemo.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registeration.aspx" />
     <Content Include="Sample.aspx" />
@@ -230,6 +231,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GridViewDemo.aspx.cs">
+      <DependentUpon>GridViewDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GridViewDemo.aspx.designer.cs">
+      <DependentUpon>GridViewDemo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
