@@ -53,6 +53,9 @@
             box-shadow: 0px 0px 10px #ccc;
             height: 1030px;
         }
+        .auto-style2 {
+            height: 47px;
+        }
     </style>
 </head>
 <body>
@@ -70,7 +73,7 @@
                     <td> 
 
                         <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
-&nbsp;<asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtFullName" CssClass="error" Display="Dynamic" ErrorMessage="FullName is Required"></asp:RequiredFieldValidator>
+&nbsp;<asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtFullName" CssClass="error" Display="Dynamic" ErrorMessage="FullName is Required">*</asp:RequiredFieldValidator>
 
                     </td>
                 </tr>
@@ -81,8 +84,8 @@
                     <td> 
 
                         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-&nbsp;<asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" CssClass="error" Display="Dynamic" ErrorMessage="Email is Required"></asp:RequiredFieldValidator>
-&nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="error" Display="Dynamic" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+&nbsp;<asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" CssClass="error" Display="Dynamic" ErrorMessage="Email is Required">*</asp:RequiredFieldValidator>
+&nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="error" Display="Dynamic" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
 &nbsp;</td>
                 </tr>
                 <tr>
@@ -92,7 +95,7 @@
                     <td> 
 
                         <asp:TextBox ID="txtConfirmEmail" runat="server"></asp:TextBox>
-&nbsp;<asp:CompareValidator ID="cvEmail" runat="server" ControlToCompare="txtEmail" ControlToValidate="txtConfirmEmail" CssClass="error" Display="Dynamic" ErrorMessage="Email and Confirm Email must match"></asp:CompareValidator>
+&nbsp;<asp:CompareValidator ID="cvEmail" runat="server" ControlToCompare="txtEmail" ControlToValidate="txtConfirmEmail" CssClass="error" Display="Dynamic" ErrorMessage="Email and Confirm Email must match">*</asp:CompareValidator>
 
                     </td>
                 </tr>
@@ -103,17 +106,37 @@
                     <td> 
 
                         <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox>
-&nbsp;<asp:RequiredFieldValidator ID="revMobile" runat="server" ControlToValidate="txtMobile" CssClass="error" Display="Dynamic" ErrorMessage="Mobile Number is Required"></asp:RequiredFieldValidator>
-&nbsp;<asp:RegularExpressionValidator ID="revMobile1" runat="server" ControlToValidate="txtMobile" CssClass="error" Display="Dynamic" ErrorMessage="Enter valid 10 digit mobile number" ValidationExpression="^[0-9]{10}$"></asp:RegularExpressionValidator>
+&nbsp;<asp:RequiredFieldValidator ID="revMobile" runat="server" ControlToValidate="txtMobile" CssClass="error" Display="Dynamic" ErrorMessage="Mobile Number is Required">*</asp:RequiredFieldValidator>
+&nbsp;<asp:RegularExpressionValidator ID="revMobile1" runat="server" ControlToValidate="txtMobile" CssClass="error" Display="Dynamic" ErrorMessage="Enter valid 10 digit mobile number" ValidationExpression="^[0-9]{10}$">*</asp:RegularExpressionValidator>
 &nbsp;&nbsp; 
 
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
+                            <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
+                            <asp:ListItem Text="Other" Value="Other"></asp:ListItem>
+                        </asp:RadioButtonList>
+
+                        <asp:RequiredFieldValidator 
+                            ID="rfvGender" 
+                            runat="server"
+                            ControlToValidate="rblGender"
+                            ErrorMessage="Please select gender"
+                            CssClass="error"
+                            Display="Dynamic">*</asp:RequiredFieldValidator>
+                        </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
                         <asp:Label ID="lblDepartment" runat="server" Text="Department"></asp:Label>
                     </td>
-                    <td> 
+                    <td class="auto-style2"> 
 
                         <asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True">
                             <asp:ListItem>--Select Department --</asp:ListItem>
@@ -123,7 +146,7 @@
                             <asp:ListItem>Sales</asp:ListItem>
                         </asp:DropDownList>
 &nbsp;
-                        <asp:RequiredFieldValidator ID="revDepartment" runat="server" ControlToValidate="ddlDepartment" CssClass="error" Display="Dynamic" ErrorMessage="Please Select Department"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="revDepartment" runat="server" ControlToValidate="ddlDepartment" CssClass="error" Display="Dynamic" ErrorMessage="Please Select Department">*</asp:RequiredFieldValidator>
 
                     </td>
                 </tr>
@@ -140,7 +163,7 @@
                             <asp:ListItem>Javascript</asp:ListItem>
                         </asp:ListBox>
 &nbsp;
-                        <asp:RequiredFieldValidator ID="rfvSkills" runat="server" ControlToValidate="lstSkills" CssClass="error" Display="Dynamic" ErrorMessage="Please select at least one skill"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvSkills" runat="server" ControlToValidate="lstSkills" CssClass="error" Display="Dynamic" ErrorMessage="Please select at least one skill">*</asp:RequiredFieldValidator>
 
                     </td>
                 </tr>
@@ -166,8 +189,8 @@
 
                         <asp:TextBox ID="txtSalary" runat="server"></asp:TextBox>
 &nbsp;&nbsp;
-                        <asp:RequiredFieldValidator ID="rfvSalary" runat="server" ControlToValidate="txtSalary" CssClass="error" Display="Dynamic" ErrorMessage="Salary is required"></asp:RequiredFieldValidator>
-                        <asp:RangeValidator ID="rvSalary" runat="server" ControlToValidate="txtSalary" CssClass="error" Display="Dynamic" ErrorMessage="Salary between 25000 and 20000" MaximumValue="200000" MinimumValue="25000" Type="Double"></asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="rfvSalary" runat="server" ControlToValidate="txtSalary" CssClass="error" Display="Dynamic" ErrorMessage="Salary is required">*</asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="rvSalary" runat="server" ControlToValidate="txtSalary" CssClass="error" Display="Dynamic" ErrorMessage="Salary between 25000 and 20000" MaximumValue="200000" MinimumValue="25000" Type="Double">*</asp:RangeValidator>
 
                     </td>
                 </tr>
@@ -178,7 +201,7 @@
                     <td> 
 
                         <asp:FileUpload ID="fuEmployeeFile" runat="server" />
-&nbsp;<asp:CustomValidator ID="cvFile" runat="server" CssClass="error" Display="Dynamic" ErrorMessage="CustomValidator" OnServerValidate="cvFile_ServerValidate"></asp:CustomValidator>
+&nbsp;<asp:CustomValidator ID="cvFile" runat="server" CssClass="error" Display="Dynamic" ErrorMessage="CustomValidator" OnServerValidate="cvFile_ServerValidate">*</asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>
@@ -189,7 +212,7 @@
                         <asp:CheckBox ID="chkAgree" runat="server" Text="I Confirm the above details are correct" />
 &nbsp;
                         <br />
-                        <asp:CustomValidator ID="cvAgree" runat="server" CssClass="error" Display="Dynamic" ErrorMessage="Please confirm the declaration" OnServerValidate="cvAgree_ServerValidate"></asp:CustomValidator>
+                        <asp:CustomValidator ID="cvAgree" runat="server" CssClass="error" Display="Dynamic" ErrorMessage="Please confirm the declaration" OnServerValidate="cvAgree_ServerValidate">*</asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>
