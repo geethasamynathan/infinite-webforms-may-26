@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace StateManagementDemonstration
 {
-    public partial class _Default : Page
+    public partial class ErrorPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // lblFullName.Text = HttpContext.Current.Profile["FullName"].ToString();
+
         }
     }
 }

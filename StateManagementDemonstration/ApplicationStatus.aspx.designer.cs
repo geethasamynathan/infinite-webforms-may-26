@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataControlsDemonstration
+namespace StateManagementDemonstration
 {
 
 
-    public partial class GridViewDemo
+    public partial class ApplicationStatus
     {
 
         /// <summary>
@@ -24,30 +24,39 @@ namespace DataControlsDemonstration
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// gvEmployees control.
+        /// lblAppStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmployees;
+        protected global::System.Web.UI.WebControls.Label lblAppStart;
 
         /// <summary>
-        /// EmployeeSqlDataSource control.
+        /// lblCurrentUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource EmployeeSqlDataSource;
+        protected global::System.Web.UI.WebControls.Label lblCurrentUsers;
 
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// lblSessionStarted control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblSessionStarted;
+
+        /// <summary>
+        /// lblSessionEnded control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSessionEnded;
     }
 }
