@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ProductGrid.ascx.cs" Inherits="UserControlDemostration.ProductGrid" %>
+<%@ OutputCache Duration="10" VaryByParam="None" %>
 <style>
   body {
       font-family: Arial;
@@ -47,7 +48,7 @@
 
 <br />
 <br />
-<br />
+<asp:Label ID="lblGenerationTime" runat="server" ></asp:Label>
 
 <asp:Button ID="btnLoad" runat="server" Text="Load Products" CssClass="btn" />
 

@@ -13,6 +13,13 @@
             <uc:HeaderMenu  ID="HeaderMenu1" runat="server" />
     <h2> Welcome to Products Page</h2>
 
+            <h2> Product Lsit -Fragment Caching Demo</h2>
+            <asp:Button ID="btnRefreshPage" runat="server" Text="Refresh Page" OnClick="btnRefreshPage_Click" />
+             <asp:Button ID="btnClearCache" runat="server" Text="Clear Data Cache" OnClick="btnClearCache_Click" />
+            <asp:Label ID="lblMessage" runat="server" />
+            <br />
+            <br />
+
             <uc:ProductGrid ID="ProductGrid1" runat="server" />
         </div>
     </form>

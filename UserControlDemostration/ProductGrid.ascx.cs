@@ -7,10 +7,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Web.Caching;
 
 namespace UserControlDemostration
 {
-  
+
     public partial class ProductGrid : System.Web.UI.UserControl
     {
         string cs = ConfigurationManager.ConnectionStrings["ProductDBConnection"].ConnectionString;
@@ -33,13 +34,24 @@ namespace UserControlDemostration
             else
             {
                 dt = GetProductsFromDatabase();
-                Cache.Insert("Products", dt, null, System.Web.Caching.Cache.NoAbsoluteExpiration,
-                    TimeSpan.FromMinutes(2), System.Web.Caching.CacheItemPriority.Default, null
-                   );
+                //Cache.Insert("Products", dt, null, System.Web.Caching.Cache.NoAbsoluteExpiration,
+                //    TimeSpan.FromMinutes(2), System.Web.Caching.CacheItemPriority.Default, null
+                //   );
 
+
+                CacheDependency dependency = new CacheDependency(Server.MapPath("~/App_Data/ProductCacheDependeny.xml"));
+
+                Cache.Insert(
+                        "Products",
+                            dt,
+                             dependency,
+                         DateTime.Now.AddMinutes(10),
+                         Cache.NoSlidingExpiration
+                    );                                                     
                 lblMessage.Text = "Products loaded from database and stored in cached.";
                 lblMessage.ForeColor = System.Drawing.Color.Blue;
             }
+            lblGenerationTime.Text = "User Control Generated at : " + DateTime.Now.ToString("hh:mm:ss tt");
 
             gvProducts.DataSource = dt;
             gvProducts.DataBind();
@@ -78,6 +90,6 @@ namespace UserControlDemostration
             LoadProducts();
         }
 
-      
+
     }
 }

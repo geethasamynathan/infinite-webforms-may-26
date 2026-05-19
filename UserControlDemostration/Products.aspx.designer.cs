@@ -33,6 +33,33 @@ namespace UserControlDemostration
         protected global::UserControlDemostration.HeaderMenu HeaderMenu1;
 
         /// <summary>
+        /// btnRefreshPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRefreshPage;
+
+        /// <summary>
+        /// btnClearCache control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClearCache;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
         /// ProductGrid1 control.
         /// </summary>
         /// <remarks>

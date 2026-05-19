@@ -13,5 +13,17 @@ namespace UserControlDemostration
         {
 
         }
+
+        protected void btnRefreshPage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Products.aspx");
+        }
+
+        protected void btnClearCache_Click(object sender, EventArgs e)
+        {
+            Cache.Remove("Products");
+            lblMessage.Text = "Data  cache removed. But fragment cache may still show old output until 60 seconds.";
+            lblMessage.ForeColor = System.Drawing.Color.Red;
+        }
     }
 }
